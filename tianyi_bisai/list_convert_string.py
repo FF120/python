@@ -4,7 +4,7 @@ Created on Thu Jan 14 15:30:51 2016
 
 @author: FF120
 """
-
+#将【1，2，3，4，5】这样的list输出成 1，2，3，4，5这样的string
 def list_to_str(list):
     str1 = str(list)
     str1 = str1.replace(']','').replace('[','').replace(' ','')
