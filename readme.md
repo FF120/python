@@ -1,1 +1,1 @@
-renpinPredict	----	人品预测大赛 地址：http://www.pkbigdata.com/common/competition/148.html
+锘縭enpinPredict	----	浜哄搧棰勬祴澶ц禌 鍦板潃锛歨ttp://www.pkbigdata.com/common/competition/148.html
