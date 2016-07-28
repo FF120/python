@@ -1,0 +1,15 @@
+========新的特征========
+(768L, 706L)
+=============SVM===================
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape=None, degree=3, gamma='auto', kernel='linear',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+[0.32500000000000001, 0.4375, 0.35526315789473684, 0.55263157894736847, 0.30263157894736842, 0.31578947368421051, 0.38157894736842107, 0.40789473684210525, 0.53947368421052633, 0.39473684210526316]
+0.40125
+==========随机分类准确率============
+[ 0.2875      0.225       0.28947368  0.14473684  0.27631579  0.21052632
+  0.25        0.23684211  0.17105263  0.23684211]
+0.232828947368
+
+[4;33mReloaded modules[24m: nilearn.input_data.multi_nifti_masker, nilearn._utils.param_validation, nilearn.image, nibabel.fileslice, nibabel.minc2, nibabel.fileholders, nibabel.casting, nibabel.arraywriters, nibabel.imageclasses, nilearn._utils.exceptions, nibabel.info, nibabel.spm99analyze, nilearn._utils.numpy_conversions, nilearn.input_data, nilearn._utils.niimg, nibabel.ecat, nilearn._utils, nibabel.pkg_info, nibabel.externals, nilearn._utils.logger, nibabel.quaternions, nilearn.input_data.nifti_labels_masker, nibabel.analyze, nibabel.spatialimages, nibabel.filename_parser, nibabel.affines, nibabel.parrec, nibabel.freesurfer, nibabel.arrayproxy, nibabel.volumeutils, nilearn.input_data.nifti_spheres_masker, nilearn._utils.niimg_conversions, nibabel.mriutils, nibabel.wrapstruct, nibabel.deprecated, nibabel.loadsave, nibabel.freesurfer.mghformat, nibabel.nifti2, nibabel.freesurfer.io, nilearn.image.resampling, nibabel.py3k, nilearn.input_data.nifti_masker, nibabel.eulerangles, fmriUtils, nilearn.version, nilearn._utils.class_inspect, nibabel.openers, nibabel.funcs, nilearn.signal, nilearn._utils.ndimage, nilearn._utils.compat, nibabel.externals.netcdf, nilearn.input_data.base_masker, nibabel.externals.six, nilearn.image.image, nibabel.minc1, nibabel.batteryrunners, nilearn._utils.cache_mixin, nilearn.masking, nibabel.nifti1, nibabel.orientations, nibabel.spm2analyze, nibabel.imageglobals, nibabel, nibabel.trackvis, nilearn.input_data.nifti_maps_masker, nibabel.optpkg, nibabel.tripwire, nilearn, nibabel.keywordonly[0m

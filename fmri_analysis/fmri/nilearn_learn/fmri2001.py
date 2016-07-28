@@ -79,3 +79,15 @@ coef_img = nifti_masker.inverse_transform(coef_)
 
 # Save the coefficients as a Nifti image
 coef_img.to_filename('haxby_svc_weights.nii')
+
+
+from nilearn import image
+from nilearn.plotting import plot_stat_map, show
+import nibabel as nib
+
+# Plot the mean image because we have no anatomic data
+mean_img = image.mean_img(func_filename)
+weight_img = nib.load('haxby_svc_weights.nii')
+plot_stat_map(weight_img, mean_img, title='SVM weights')
+show()
+    
