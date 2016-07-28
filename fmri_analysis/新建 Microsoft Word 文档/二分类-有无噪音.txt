@@ -1,0 +1,355 @@
+================================================================================
+Ridge Classifier
+--------------------------------------------------------------------------------
+Training: 
+RidgeClassifier(alpha=1.0, class_weight=None, copy_X=True, fit_intercept=True,
+        max_iter=None, normalize=False, random_state=None, solver='sag',
+        tol=0.01)
+train time: 5.885s
+test time:  0.055s
+accuracy:   0.474
+dimensionality: 63783
+density: 1.000000
+train time: 6.307s
+test time:  0.056s
+accuracy:   0.539
+dimensionality: 63783
+density: 1.000000
+train time: 6.074s
+test time:  0.054s
+accuracy:   0.604
+dimensionality: 63783
+density: 1.000000
+train time: 6.533s
+test time:  0.059s
+accuracy:   0.558
+dimensionality: 63783
+density: 1.000000
+train time: 6.630s
+test time:  0.055s
+accuracy:   0.533
+dimensionality: 63783
+density: 1.000000
+================================================================================
+Perceptron
+--------------------------------------------------------------------------------
+Training: 
+Perceptron(alpha=0.0001, class_weight=None, eta0=1.0, fit_intercept=True,
+      n_iter=50, n_jobs=1, penalty=None, random_state=0, shuffle=True,
+      verbose=0, warm_start=False)
+train time: 2.310s
+test time:  0.062s
+accuracy:   0.461
+dimensionality: 63783
+density: 1.000000
+train time: 2.384s
+test time:  0.064s
+accuracy:   0.558
+dimensionality: 63783
+density: 1.000000
+train time: 2.669s
+test time:  0.067s
+accuracy:   0.617
+dimensionality: 63783
+density: 1.000000
+train time: 2.412s
+test time:  0.077s
+accuracy:   0.545
+dimensionality: 63783
+density: 1.000000
+train time: 2.398s
+test time:  0.062s
+accuracy:   0.572
+dimensionality: 63783
+density: 1.000000
+================================================================================
+Passive-Aggressive
+--------------------------------------------------------------------------------
+Training: 
+PassiveAggressiveClassifier(C=1.0, class_weight=None, fit_intercept=True,
+              loss='hinge', n_iter=50, n_jobs=1, random_state=None,
+              shuffle=True, verbose=0, warm_start=False)
+train time: 4.560s
+test time:  0.062s
+accuracy:   0.468
+dimensionality: 63783
+density: 1.000000
+train time: 4.689s
+test time:  0.063s
+accuracy:   0.558
+dimensionality: 63783
+density: 1.000000
+train time: 4.727s
+test time:  0.063s
+accuracy:   0.565
+dimensionality: 63783
+density: 1.000000
+train time: 4.721s
+test time:  0.062s
+accuracy:   0.526
+dimensionality: 63783
+density: 1.000000
+train time: 4.722s
+test time:  0.064s
+accuracy:   0.645
+dimensionality: 63783
+density: 1.000000
+================================================================================
+kNN
+--------------------------------------------------------------------------------
+Training: 
+KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+           metric_params=None, n_jobs=1, n_neighbors=10, p=2,
+           weights='uniform')
+train time: 1.235s
+test time:  15.655s
+accuracy:   0.500
+train time: 16.933s
+test time:  11.694s
+accuracy:   0.552
+train time: 12.965s
+test time:  10.867s
+accuracy:   0.474
+train time: 12.164s
+test time:  11.087s
+accuracy:   0.468
+train time: 12.353s
+test time:  12.251s
+accuracy:   0.513
+================================================================================
+Liblinear model with l2
+--------------------------------------------------------------------------------
+Training: 
+LinearSVC(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+     intercept_scaling=1, loss='l2', max_iter=1000, multi_class='ovr',
+     penalty='l2', random_state=None, tol=0.001, verbose=0)
+train time: 6.018s
+test time:  0.074s
+accuracy:   0.461
+dimensionality: 63783
+density: 1.000000
+train time: 5.707s
+test time:  0.074s
+accuracy:   0.539
+dimensionality: 63783
+density: 1.000000
+train time: 6.773s
+test time:  0.075s
+accuracy:   0.558
+dimensionality: 63783
+density: 1.000000
+train time: 6.353s
+test time:  0.070s
+accuracy:   0.532
+dimensionality: 63783
+density: 1.000000
+train time: 6.393s
+test time:  0.072s
+accuracy:   0.658
+dimensionality: 63783
+density: 1.000000
+================================================================================
+Liblinear model with l1
+--------------------------------------------------------------------------------
+Training: 
+LinearSVC(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+     intercept_scaling=1, loss='l2', max_iter=1000, multi_class='ovr',
+     penalty='l1', random_state=None, tol=0.001, verbose=0)
+train time: 3.930s
+test time:  0.077s
+accuracy:   0.396
+dimensionality: 63783
+density: 0.010708
+train time: 4.223s
+test time:  0.074s
+accuracy:   0.526
+dimensionality: 63783
+density: 0.011367
+train time: 4.042s
+test time:  0.075s
+accuracy:   0.558
+dimensionality: 63783
+density: 0.012135
+train time: 3.698s
+test time:  0.071s
+accuracy:   0.630
+dimensionality: 63783
+density: 0.012025
+train time: 4.902s
+test time:  0.070s
+accuracy:   0.605
+dimensionality: 63783
+density: 0.011555
+================================================================================
+SGD model with l2
+--------------------------------------------------------------------------------
+Training: 
+SGDClassifier(alpha=0.0001, average=False, class_weight=None, epsilon=0.1,
+       eta0=0.0, fit_intercept=True, l1_ratio=0.15,
+       learning_rate='optimal', loss='hinge', n_iter=50, n_jobs=1,
+       penalty='l2', power_t=0.5, random_state=None, shuffle=True,
+       verbose=0, warm_start=False)
+train time: 2.306s
+test time:  0.064s
+accuracy:   0.526
+dimensionality: 63783
+density: 1.000000
+train time: 2.378s
+test time:  0.065s
+accuracy:   0.519
+dimensionality: 63783
+density: 1.000000
+train time: 2.359s
+test time:  0.062s
+accuracy:   0.565
+dimensionality: 63783
+density: 1.000000
+train time: 2.360s
+test time:  0.064s
+accuracy:   0.506
+dimensionality: 63783
+density: 1.000000
+train time: 2.371s
+test time:  0.064s
+accuracy:   0.546
+dimensionality: 63783
+density: 1.000000
+================================================================================
+SGD model with l1
+--------------------------------------------------------------------------------
+Training: 
+SGDClassifier(alpha=0.0001, average=False, class_weight=None, epsilon=0.1,
+       eta0=0.0, fit_intercept=True, l1_ratio=0.15,
+       learning_rate='optimal', loss='hinge', n_iter=50, n_jobs=1,
+       penalty='l1', power_t=0.5, random_state=None, shuffle=True,
+       verbose=0, warm_start=False)
+train time: 14.176s
+test time:  0.068s
+accuracy:   0.461
+dimensionality: 63783
+density: 0.953499
+train time: 14.334s
+test time:  0.065s
+accuracy:   0.481
+dimensionality: 63783
+density: 0.959927
+train time: 14.259s
+test time:  0.068s
+accuracy:   0.578
+dimensionality: 63783
+density: 0.960883
+train time: 14.272s
+test time:  0.066s
+accuracy:   0.539
+dimensionality: 63783
+density: 0.958578
+train time: 14.378s
+test time:  0.063s
+accuracy:   0.612
+dimensionality: 63783
+density: 0.958092
+================================================================================
+SGD model with Elastic-Net penalty
+--------------------------------------------------------------------------------
+Training: 
+SGDClassifier(alpha=0.0001, average=False, class_weight=None, epsilon=0.1,
+       eta0=0.0, fit_intercept=True, l1_ratio=0.15,
+       learning_rate='optimal', loss='hinge', n_iter=50, n_jobs=1,
+       penalty='elasticnet', power_t=0.5, random_state=None, shuffle=True,
+       verbose=0, warm_start=False)
+train time: 14.318s
+test time:  0.064s
+accuracy:   0.481
+dimensionality: 63783
+density: 0.973190
+train time: 14.516s
+test time:  0.066s
+accuracy:   0.481
+dimensionality: 63783
+density: 0.977329
+train time: 14.444s
+test time:  0.066s
+accuracy:   0.578
+dimensionality: 63783
+density: 0.976687
+train time: 14.550s
+test time:  0.064s
+accuracy:   0.539
+dimensionality: 63783
+density: 0.979054
+train time: 14.650s
+test time:  0.065s
+accuracy:   0.658
+dimensionality: 63783
+density: 0.976138
+================================================================================
+NearestCentroid without threshold
+--------------------------------------------------------------------------------
+Training: 
+NearestCentroid(metric='euclidean', shrink_threshold=None)
+train time: 0.194s
+test time:  0.072s
+accuracy:   0.500
+train time: 0.245s
+test time:  0.089s
+accuracy:   0.604
+train time: 0.290s
+test time:  0.075s
+accuracy:   0.506
+train time: 0.250s
+test time:  0.077s
+accuracy:   0.429
+train time: 0.251s
+test time:  0.074s
+accuracy:   0.546
+================================================================================
+Random forest
+--------------------------------------------------------------------------------
+Training: 
+RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=None, max_features='auto', max_leaf_nodes=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=100, n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False)
+train time: 5.973s
+test time:  0.036s
+accuracy:   0.481
+train time: 6.311s
+test time:  0.036s
+accuracy:   0.565
+train time: 6.243s
+test time:  0.036s
+accuracy:   0.584
+train time: 6.286s
+test time:  0.035s
+accuracy:   0.506
+train time: 6.265s
+test time:  0.036s
+accuracy:   0.539
+================================================================================
+LinearSVC with L1-based feature selection
+--------------------------------------------------------------------------------
+Training: 
+Pipeline(steps=[('feature_selection', SelectFromModel(estimator=LinearSVC(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l1', random_state=None, tol=0.001,
+     verbose=0),
+        prefit=False, thresho...ax_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0))])
+train time: 4.734s
+test time:  0.037s
+accuracy:   0.429
+train time: 4.178s
+test time:  0.029s
+accuracy:   0.519
+train time: 4.281s
+test time:  0.029s
+accuracy:   0.584
+train time: 4.379s
+test time:  0.028s
+accuracy:   0.623
+train time: 4.260s
+test time:  0.028s
+accuracy:   0.618

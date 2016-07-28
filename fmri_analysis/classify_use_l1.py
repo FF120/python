@@ -6,7 +6,7 @@ Created on Sat Jul 23 20:25:14 2016
 """
 import scipy.io as sio 
 import numpy as np
-
+import os
 from nilearn.input_data import NiftiMasker
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_selection import SelectFromModel
@@ -15,27 +15,26 @@ from sklearn.cross_validation import StratifiedKFold
 
 import fmriUtils as fm  #自定义函数
 
+root = r"D:\data_processing\Python"
 n_folds = 5
 
-#f = fm.outTo() #输出重定向到文件
+os.chdir(root)
+label_path = root+'\design\label.npy'
+empty_tr_path = root+'\design\empty_tr.npy'
+mask_path = root + '\design\mask\mask.img'
+func_path = root + '\Sub002\wBoldImg4D_sub002.nii'
+label = np.load(label_path)
+empty_tr = np.load(empty_tr_path)
 
-label_path = "D:/data_processing/jianlong/data_processing/mvpa/design/label.mat"
-empty_tr_path = "D:/data_processing/jianlong/data_processing/mvpa/design/a.mat"
-mask_path = "D:/data_processing/jianlong/data_processing/mvpa/design/allMask.nii"
-func_filename = "D:/data_processing/Python/Sub002/wBoldImg4D_sub002.nii"
-
-label_mat=sio.loadmat(label_path) 
-empty_tr_mat = sio.loadmat(empty_tr_path)
-label = label_mat['label']
-label=label.reshape(-1,)
-empty_tr=empty_tr_mat['a']
 nifti_masker = NiftiMasker(mask_img=mask_path, 
                            standardize=True,
                            memory="nilearn_cache", memory_level=1)               
-X = nifti_masker.fit_transform(func_filename)
+X = nifti_masker.fit_transform(func_path)
 X = np.delete(X,empty_tr-1,axis=0)
 y = label
 
+np.save('X.npy',X)
+np.save('y.npy',y)
  
 y = fm.defineClass(y)
 #控制选择的特征的数量的参数
@@ -46,7 +45,7 @@ print X.shape
 print "*"*80
 for c in cc:
     
-    clf_l1_LR = LogisticRegression(C=c, penalty='l1', tol=0.01)
+    clf_l1_LR = LogisticRegression(C=c, penalty='l1', tol=0.001)
     clf_l1_LR.fit(X, y)
     coef = clf_l1_LR.coef_
     print "=======LR model========="
@@ -55,7 +54,7 @@ for c in cc:
     feature_mask = model._get_support_mask() #获得特征选择的下标
     new_mask = feature_mask.astype('float64')
     coef_img = nifti_masker.inverse_transform(new_mask)
-    coef_img.to_filename('D:\sub002_wholemask.nii')
+    coef_img.to_filename('D:\sub001_L1.img')
 
     XX = model.transform(X)
     yy = y

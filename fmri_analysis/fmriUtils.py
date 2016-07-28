@@ -5,7 +5,7 @@ import numpy as np
 import sys,os
 
 import nibabel as nib 
-
+from time import time
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_selection import SelectFromModel
 from sklearn.svm import SVC
@@ -17,7 +17,9 @@ from sklearn.cross_validation import cross_val_score
 from sklearn.dummy import DummyClassifier
 from nilearn.input_data import NiftiMasker
 from sklearn.decomposition import PCA
-
+from sklearn.cross_validation import StratifiedKFold
+from sklearn.utils.extmath import density
+from sklearn import metrics
 
 '''
 加载被试功能像，使用nifti_masker和全脑mask将数据格式转换成[n_sample,n_features]
@@ -101,6 +103,14 @@ def defineClass(label,according="class"):
                 label[i] = 2
                 
         return label
+    if according == "direct":
+        for i in xrange(label.shape[0]):
+            if label[i] in [1,2,5,6,9,10,13,14]:
+                label[i] = 1
+            elif label[i] in [3,4,7,8,11,12,15,16]:
+                label[i] = 2
+                
+        return label
         
 '''
 输出重定向到文件
@@ -137,7 +147,65 @@ def showImg(filename):
 #    weight_img = nib.load('haxby_svc_weights.nii')
 #    plot_stat_map(weight_img, mean_img, title='SVM weights')
 #    show()
+'''
+训练和测试方法
+'''
+def benchmark(clf,X_train,X_test,y_train,y_test):
+    print('-' * 80)
+    print("Training: ")
+    print(clf)
+    t0 = time()
+    clf.fit(X_train, y_train)
+    train_time = time() - t0
+    print("train time: %0.3fs" % train_time)
+
+    t0 = time()
+    pred = clf.predict(X_test)
+    test_time = time() - t0
+    print("test time:  %0.3fs" % test_time)
+    #score = np.sum(pred == y_test) / float(np.size(y_test))
+    score = metrics.accuracy_score(y_test, pred)
+    print("accuracy:   %0.3f" % score)
+
+    if hasattr(clf, 'coef_'):
+        print("dimensionality: %d" % clf.coef_.shape[1])
+        print("density: %f" % density(clf.coef_))
+        
+    clf_descr = str(clf).split('(')[0]
+    return clf_descr, score, train_time, test_time    
     
-    
-    
-    
+'''
+训练和测试方法，with交叉验证
+clf 分类模型
+X 特征
+y 标签
+nfolds K折
+'''   
+def benchmarkWithCV(clf,X,y,n_folds):
+    print('-' * 80)
+    print("Training: ")
+    print(clf)
+    cv = StratifiedKFold(y,n_folds)
+    cv_scores = []
+    t0 = time()
+    for train, test in cv:   
+        clf.fit(X[train], y[train])
+        train_time = time() - t0
+        print("train time: %0.3fs" % train_time)
+
+        t0 = time()
+        pred = clf.predict(X[test])
+        test_time = time() - t0
+        print("test time:  %0.3fs" % test_time)
+        #score = np.sum(pred == y_test) / float(np.size(y_test))
+        score = metrics.accuracy_score(y[test], pred)
+        cv_scores.append(score)
+        print("accuracy:   %0.3f" % score)
+
+        if hasattr(clf, 'coef_'):
+            print("dimensionality: %d" % clf.coef_.shape[1])
+            print("density: %f" % density(clf.coef_))
+        
+    clf_descr = str(clf).split('(')[0]
+    mean_score = np.mean(cv_scores)
+    return clf_descr, mean_score, train_time, test_time    
